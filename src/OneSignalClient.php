@@ -220,7 +220,7 @@ class OneSignalClient
 
         if(isset($image)){
             $params['big_image'] = $image;
-            $params['ios_attachments'] = [$image];
+            $params['ios_attachments'] = [ 'image' => $image];
         }
 
         if(isset($headings)){
