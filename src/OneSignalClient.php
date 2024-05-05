@@ -191,7 +191,7 @@ class OneSignalClient
      * @param null $headings
      * @param null $subtitle
      */
-    public function sendNotificationToExternalUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null) {
+    public function sendNotificationToExternalUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $headings = null, $subtitle = null, $image = null) {
         $contents = array(
             "en" => $message
         );
@@ -216,6 +216,11 @@ class OneSignalClient
 
         if(isset($schedule)){
             $params['send_after'] = $schedule;
+        }
+
+        if(isset($image)){
+            $params['big_image'] = $image;
+            $params['ios_attachments'] = [$image];
         }
 
         if(isset($headings)){
